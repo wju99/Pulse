@@ -19,22 +19,14 @@ struct LoginView: View {
                 Image("pulse_logo_image")
                     .resizable()
                     .scaledToFit()
-                    .frame(width:120, height:120)
+                    .frame(width:160, height:160)
                     .padding()
                 
                 VStack{
                     TextField("Enter your email", text:$email)
-                        .font(.subheadline)
-                        .padding(12)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                        .padding(.horizontal, 24)
+                        .modifier(TextFieldModifier())
                     SecureField("Enter your password", text:$password)
-                        .font(.subheadline)
-                        .padding(12)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                        .padding(.horizontal, 24)
+                        .modifier(TextFieldModifier())
                 }
                 
                 NavigationLink{
@@ -66,7 +58,7 @@ struct LoginView: View {
                 Divider()
                 
                 NavigationLink{
-                    Text("Registration View")
+                    RegistrationView().navigationBarBackButtonHidden()
                 } label: {
                     HStack(spacing: 3){
                         Text("Don't have an account?")
